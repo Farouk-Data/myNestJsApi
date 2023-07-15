@@ -27,3 +27,6 @@
     => Controllers are in change of defining the paths and http methods
     => @Controller('ninjas'): anything within this controller is gonna have that prefix ('ninjas')
     => Controllers are responsible for handling incoming requests and returning responses to the client.
+    =>Decorators for methods.
+    =>We need to parse the request body in post() (use of DTO)
+    

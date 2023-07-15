@@ -1,4 +1,6 @@
-import { Controller, Delete, Get, Param, Post, Put, Query } from '@nestjs/common';
+import { Body, Controller, Delete, Get, Param, Post, Put, Query } from '@nestjs/common';
+import { CreateNinjaDto } from './dto/create-ninja.dto';
+import { UpdateNinjaDto } from './dto/update-ninja.dto';
 
 // /ninjas is the path
 @Controller('ninjas')
@@ -22,14 +24,17 @@ export class NinjasController {
     // POST /ninjas (test with postman)
     @Post()
     // Parse the request body
-    createNinja(){
-        return {};
+    createNinja(@Body() createNinjaDto: CreateNinjaDto ){
+        return {
+            name: createNinjaDto.name,
+        };
     }
 
     // PUT /ninjas/:id
     @Put(':id')
-    updateNinja(@Param('id') id: string){
-        return {id};
+    updateNinja(@Param('id') id: string, @Body() updateNinjaDto: UpdateNinjaDto){
+        return {id,
+        name: updateNinjaDto.name}
     }
 
     //DELETE /ninjas/:id
