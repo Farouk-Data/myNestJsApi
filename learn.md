@@ -29,4 +29,9 @@
     => Controllers are responsible for handling incoming requests and returning responses to the client.
     =>Decorators for methods.
     =>We need to parse the request body in post() (use of DTO)
+
+# 4_providers(services):
+    => Controllers should handle HTTP requests and delegate more complex tasks to providers. Providers are plain JavaScript classes that are declared as providers in a module.
+    =>the logic of the controllers.
+    =>has @Injectable() decorator (the provider can be injected into any class that depends on it)
     
