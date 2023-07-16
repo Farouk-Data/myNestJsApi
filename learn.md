@@ -35,3 +35,6 @@
     =>the logic of the controllers.
     =>has @Injectable() decorator (the provider can be injected into any class that depends on it)
     
+# 5_ErrorHandling:
+    => Throw exceptions => try catch (you can build your own)
+    => Use exception filters @Catch(HttpException)

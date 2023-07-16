@@ -1,7 +1,8 @@
-import { Body, Controller, Delete, Get, Param, Post, Put, Query } from '@nestjs/common';
+import { Body, Controller, Delete, Get, NotFoundException, Param, Post, Put, Query } from '@nestjs/common';
 import { CreateNinjaDto } from './dto/create-ninja.dto';
 import { UpdateNinjaDto } from './dto/update-ninja.dto';
 import { NinjasService } from './ninjas.service';
+import { NotFoundError } from 'rxjs';
 
 //injections is the equivalent of this:
 // const service = new NinjasService();
@@ -29,7 +30,12 @@ export class NinjasController {
     // in order to parse the ':id' from the request so the logic in the method can work with it:
     // we use the @Param decorator
     getOneNinja(@Param('id') id: string){
-        return this.ninjasService.getOneNinja(+id);
+        try{
+            return this.ninjasService.getOneNinja(+id);
+        }
+        catch(e){
+            throw  new NotFoundException("");
+        }
     }
 
     // POST /ninjas (test with postman)
