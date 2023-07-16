@@ -38,3 +38,9 @@
 # 5_ErrorHandling:
     => Throw exceptions => try catch (you can build your own)
     => Use exception filters @Catch(HttpException)
+
+# 6_Pipes:
+    => for data transformation: 
+        -e.g: string to int.
+    => data validation of a body request for exemple
+    => install class-validator class-transformer
