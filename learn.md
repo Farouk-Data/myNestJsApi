@@ -44,3 +44,7 @@
         -e.g: string to int.
     => data validation of a body request for exemple
     => install class-validator class-transformer
+
+# 7_Guards: 
+    => protecting the routes 
+    => nest g guard

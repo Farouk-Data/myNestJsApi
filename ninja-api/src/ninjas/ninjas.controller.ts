@@ -1,8 +1,9 @@
-import { Body, Controller, Delete, Get, NotFoundException, Param, ParseIntPipe, Post, Put, Query, ValidationPipe } from '@nestjs/common';
+import { Body, Controller, Delete, Get, NotFoundException, Param, ParseIntPipe, Post, Put, Query, UseGuards, ValidationPipe } from '@nestjs/common';
 import { CreateNinjaDto } from './dto/create-ninja.dto';
 import { UpdateNinjaDto } from './dto/update-ninja.dto';
 import { NinjasService } from './ninjas.service';
 import { NotFoundError } from 'rxjs';
+import { BeltGuard } from 'src/belt/belt.guard';
 
 //injections is the equivalent of this:
 // const service = new NinjasService();
@@ -41,6 +42,8 @@ export class NinjasController {
 
     // POST /ninjas (test with postman)
     @Post()
+    //using guards:
+    @UseGuards(BeltGuard)
     // Parse the request body
     //validation pipe
     createNinja(@Body(new ValidationPipe()) createNinjaDto: CreateNinjaDto ){
